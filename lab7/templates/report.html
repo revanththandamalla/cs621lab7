@@ -1,0 +1,48 @@
+{% extends "base.html"%}
+
+
+{% block main %}
+<p> Let's see if your password meets the requirements</p>
+
+<br />
+
+{% if False in content %}
+<p>On no! Looks like you had issues with your password!</p>
+<br />
+<br />
+<p>Here are the requirements you failed:</p>
+{% block body %}
+<p>
+<ul>
+
+    {% if not content[0] %}
+    <li>You did not use the password an uppercase character somewhere</li>
+    {% endif %}
+
+    {% if not content[1] %}
+    <li>You did not use the password an lowercase character somewhere</li>
+    {% endif %}
+
+    {% if not content[2] %}
+    <li>You did not use the password with a number at the end</li>
+    {% endif %}
+
+    {% if not content[3] %}
+    <li>You did not use the username an uppercase character somewhere</li>
+    {% endif %}
+
+    {% if not content[4] %}
+    <li>You did not use the username an lowercase character somewhere</li>
+    {% endif %}
+
+    {% if not content[5] %}
+    <li>You did not use the username with a number at the end</li>
+    {% endif %}
+</ul>
+</p>
+{% endblock %}
+{% else %}
+    <p> All three conditions passed </p>
+{% endif %}
+
+{% endblock %}
